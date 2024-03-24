@@ -1,0 +1,22 @@
+{
+  "name": "serverless-api-news",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Edgar Verduzco",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.1537.0",
+    "axios": "^1.6.5",
+    "mssql": "^10.0.2"
+  },
+  "devDependencies": {
+    "serverless-offline": "^13.3.2",
+    "serverless-plugin-include-dependencies": "^5.1.0",
+    "serverless-prune-plugin": "^2.0.2"
+  }
+}

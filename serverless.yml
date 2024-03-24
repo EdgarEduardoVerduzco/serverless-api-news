@@ -1,0 +1,71 @@
+service: serverless-api-news
+
+plugins:
+  - serverless-offline
+  - serverless-prune-plugin
+  - serverless-plugin-include-dependencies
+
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  role: arn:aws:iam::591688655912:role/wrapp-apirest-dev-us-east-1-lambdaRole
+
+functions:
+  getListNews:
+    handler: handler.getListNews
+    timeout: 29
+    events:
+      - httpApi:
+          path: /getListNews
+          method: get
+          cors: true
+  getNewsById:
+    handler: handler.getNewsById
+    timeout: 29
+    events:
+      - httpApi:
+          path: /news/{id}
+          method: get
+          cors: true
+  getListUsers:
+    handler: handler.getListUsers
+    timeout: 29
+    events:
+      - httpApi:
+          path: /users
+          method: get
+          cors: true
+  getUserById:
+    handler: handler.getUserById
+    timeout: 29
+    events:
+      - httpApi:
+          path: /users/{id}
+          method: get
+          cors: true
+  updateUser:
+    handler: handler.updateUser
+    timeout: 29
+    events:
+      - httpApi:
+          path: /updateUser/{id}
+          method: post
+          cors: true
+  deactivateUser:
+    handler: handler.deactivateUser
+    timeout: 29
+    events:
+      - httpApi:
+          path: /users/{id}/deactivate
+          method: post
+          cors: true
+  loginUser:
+    handler: handler.loginUser
+    timeout: 29
+    events:
+      - httpApi:
+          path: /loginUser
+          method: post
+          cors: true
